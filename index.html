@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Jagriti</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+background:radial-gradient(circle at center,#0a0a0a 0%,#000 70%);
+color:white;
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
+scroll-behavior:smooth;
+}
+
+/* PARTICLE BACKGROUND */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* SECTION */
+.section{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px 20px;
+opacity:0;
+transform:translateY(60px);
+transition:1.4s ease;
+}
+.section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* INTRO */
+.intro h1{
+font-family:'Playfair Display',serif;
+font-size:56px;
+letter-spacing:3px;
+background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
+-webkit-background-clip:text;
+color:transparent;
+animation:fadeIn 3s ease forwards;
+}
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* CAKE */
+.cake{
+position:relative;
+margin-top:60px;
+}
+
+.layer{
+width:360px;
+height:70px;
+margin:12px auto;
+border-radius:18px;
+background:linear-gradient(145deg,#1a1a1a,#2c2c2c);
+box-shadow:
+0 30px 80px rgba(0,0,0,0.9),
+inset 0 4px 12px rgba(255,255,255,0.05);
+}
+
+.candle{
+position:absolute;
+width:10px;
+height:34px;
+background:linear-gradient(#fff,#d4af37);
+border-radius:3px;
+}
+
+.flame{
+width:12px;
+height:12px;
+background:radial-gradient(circle,#fff 0%,#ffcc00 40%,rgba(255,140,0,0.4) 70%);
+border-radius:50%;
+filter:blur(1px);
+animation:flicker 0.3s infinite alternate;
+}
+
+@keyframes flicker{
+from{transform:scale(1);}
+to{transform:scale(0.75);}
+}
+
+/* COUNTDOWN */
+.count{
+font-size:60px;
+margin-top:40px;
+font-weight:300;
+letter-spacing:5px;
+}
+
+/* MESSAGE */
+.message{
+max-width:900px;
+font-size:20px;
+line-height:2;
+opacity:0;
+transition:2s;
+}
+
+.message.show{
+opacity:1;
+}
+
+/* GALLERY */
+.gallery{
+margin-top:70px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+perspective:1000px;
+}
+
+.gallery img{
+width:170px;
+height:170px;
+object-fit:cover;
+border-radius:16px;
+box-shadow:0 20px 60px rgba(0,0,0,0.8);
+border:1px solid rgba(255,215,0,0.4);
+transform:rotateY(0deg);
+animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+100%{transform:translateY(0);}
+}
+
+/* FINAL TEXT */
+.final{
+margin-top:100px;
+font-size:44px;
+font-family:'Playfair Display',serif;
+background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
+-webkit-background-clip:text;
+color:transparent;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 10px rgba(212,175,55,0.6);}
+to{text-shadow:0 0 30px rgba(212,175,55,1);}
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="section intro show">
+<h1>Something Beautiful Is Unfolding...</h1>
+</div>
+
+<div class="section" id="cakeSection">
+<h1 style="font-family:'Playfair Display',serif;font-size:40px;">Make A Wish</h1>
+
+<div class="cake" id="cake">
+<div class="layer"></div>
+<div class="layer"></div>
+<div class="layer"></div>
+</div>
+
+<div class="count" id="count">3</div>
+</div>
+
+<div class="section" id="messageSection">
+<div class="message" id="msg">
+Jagriti,
+Yawrrr mujhe pata hai ki hum itne close nahi hain, but phir bhi jab main apne lowest phase se suffer kar raha tha na, tab tune meri baat suni thi 🤍… Even jab hum itne close bhi nahi the, tab bhi tune mujhe ignore nahi kiya. Tune patiently meri baat suni aur honestly thoda sa halka feel karaya…
+Life mein sab cheezein change hoti rehti hain, friends bhi change hote hain, but teri woh simple si kindness mere liye kaafi matter karti hai… Shayad hamara milna bas ek coincidence tha, ya shayad aise hi hona tha — par jo bhi tha, main genuinely thankful hoon 🌸…
+Jab kuch dosto ki zarurat thi aur woh paas hoke bhi thode door the, tab tune bina kuch soche bas simple aur understanding way mein support dikhaya, aur woh cheez sach mein matter karti hai…
+Main shayad yeh cheez properly express nahi kar paa raha hoon, but I truly respect you and appreciate the kind of person you are 💫… Isliye socha ek chhota sa surprise pehle se plan kar doon. Kuch bada nahi hai — bas meri taraf se thoda sa effort hai… Is surprise ka bhi ek reason hai, woh tu jab message karegi tab bataunga. You just enjoy this for now…
+Agar pasand aaye, toh bata dena 😌💛…
+Happiest Birthday in advance!! 🎉✨
+You are like a sister energy — supportive, strong, and real. I wish you confidence in every step you take, happiness in small moments, and success in whatever you choose. Keep being fearless, kind, and true to yourself. May this year bring growth, laughter, and lots of good memories. Always stay blessed and happy. 🌼💛
+</div>
+
+<div class="gallery">
+<img src="C:\Users\saini\Downloads\Secret_1.jpg">
+<img src="C:\Users\saini\Downloads\Secret_2.jpg">
+<img src="C:\Users\saini\Downloads\Secret_3.jpg">
+<img src="C:\Users\saini\Downloads\Secret_4.jpg">
+<img src="C:\Users\saini\Downloads\Secret_5.jpg">
+<img src="C:\Users\saini\Downloads\Secret_6.jpg">
+<img src="C:\Users\saini\Downloads\Secret_7.jpg">
+<img src="C:\Users\saini\Downloads\Secret_8.jpg">
+</div>
+
+<div class="final">
+Happiest Birthday In Advance Jagriti!!!!!! Scroll up for the message....
+</div>
+
+</div>
+
+<script>
+
+/* PARTICLES */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+for(let i=0;i<150;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+d:Math.random()*1.5
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="rgba(212,175,55,0.8)";
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fill();
+});
+update();
+}
+
+function update(){
+particles.forEach(p=>{
+p.y+=p.d;
+if(p.y>canvas.height){
+p.y=0;
+p.x=Math.random()*canvas.width;
+}
+});
+}
+
+setInterval(draw,30);
+
+/* SCROLL REVEAL */
+const sections=document.querySelectorAll(".section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){
+sec.classList.add("show");
+}
+});
+});
+
+/* AUTO START */
+setTimeout(()=>{
+window.scrollTo({top:window.innerHeight,behavior:"smooth"});
+startCountdown();
+},4000);
+
+/* CAKE CANDLES */
+function createCandles(){
+const cake=document.getElementById("cake");
+const cakeWidth=360;
+for(let i=0;i<13;i++){
+let candle=document.createElement("div");
+candle.className="candle";
+candle.style.left=(cakeWidth/2 - 120 + i*20)+"px";
+candle.style.top="-40px";
+
+let flame=document.createElement("div");
+flame.className="flame";
+candle.appendChild(flame);
+
+cake.appendChild(candle);
+}
+}
+
+function startCountdown(){
+createCandles();
+let count=3;
+const counter=document.getElementById("count");
+
+let interval=setInterval(()=>{
+count--;
+counter.innerText=count;
+if(count===0){
+clearInterval(interval);
+counter.innerText="✨";
+document.querySelectorAll(".flame").forEach(f=>f.remove());
+fireworks();
+setTimeout(()=>{
+window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+document.getElementById("msg").classList.add("show");
+},2000);
+}
+},1000);
+}
+
+/* FIREWORKS */
+function fireworks(){
+for(let i=0;i<100;i++){
+let spark=document.createElement("div");
+spark.style.position="fixed";
+spark.style.width="6px";
+spark.style.height="6px";
+spark.style.background="gold";
+spark.style.borderRadius="50%";
+spark.style.left=window.innerWidth/2+"px";
+spark.style.top=window.innerHeight/2+"px";
+spark.style.transition="1s ease-out";
+document.body.appendChild(spark);
+
+setTimeout(()=>{
+spark.style.left=(Math.random()*window.innerWidth)+"px";
+spark.style.top=(Math.random()*window.innerHeight)+"px";
+spark.style.opacity=0;
+},10);
+
+setTimeout(()=>spark.remove(),1000);
+}
+}
+
+</script>
+
+</body>
+</html>
